@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-//Connect to Database 
+//Connect to MySQL Community Database 
 builder.Services.AddDbContextPool<AppDbContext>(options =>
 	   options.UseMySQL(builder.Configuration.GetConnectionString("Defaults")));
 
