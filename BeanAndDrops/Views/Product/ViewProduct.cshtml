@@ -1,0 +1,30 @@
+﻿@model BeanAndDrops.Models.Entities.Product
+@{
+    ViewData["Title"] = Model.Product_Name;
+}
+<link href="~/css/product.css" rel="stylesheet" />
+<div class="container py-4 my-4 mx-auto d-flex flex-column">
+    <div class="header">
+        <div class="row r1">
+            <div class="col-md-9 abc">
+                <h1>@Model.Product_Name</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container-body mt-4">
+        <div class="row r3">
+            <div class="col-md-4 p-0 klo">
+                <ul>
+                    <li>@Model.Product_Description</li>
+                </ul>
+                <div class="text-center pb-5">
+                    <span class="h2">@(Model.Product_Price * 0.15 + Model.Product_Price) &rlm; <small>SAR (Tax included)</small></span>
+                </div>
+                <button type="button" class="btn btn-outline-secondary"><a class="but" href="/addtocart/@Model.Product_id">ADD TO CART</a></button>
+
+                <button type="button" class="btn btn-outline-secondary"><a class="but" href="/invoice/@Model.Product_id">Buy Now</a></button>
+            </div>
+            <div class="col-md-6"> <img src="@Model.image" width="90%" height="95%"> </div>
+        </div>
+    </div>
+</div>

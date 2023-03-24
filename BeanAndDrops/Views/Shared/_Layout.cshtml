@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - BeanAndDrops</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/testMySQL.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header class="section-header">
+        <nav class="navbar navbar-dark navbar-expand p-0 bg-dark">
+            <div class="container-fluid">
+
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">BeanAndDrops</a>
+@*                <ul class="navbar-nav d-none d-md-flex mr-auto">
+                    <li class="nav-item"><a class="nav-link" href="#" data-abc="true">Cash On Delivery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" data-abc="true">Free Delivery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" data-abc="true">Cash Backs</a></li>
+                </ul>*@
+
+                @*user info*@
+                <ul class="navbar-nav d-flex align-items-center">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link d-flex align-items-center" data-abc="true"><span>Login</span><i class='bx bxs-chevron-down'></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-center" data-abc="true"><span>/</span><i class='bx bxs-chevron-down'></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link d-flex align-items-center" data-abc="true"><span>SignUp</span><i class='bx bxs-chevron-down'></i></a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+
+        <section class="header-main border-bottom bg-white">
+	<div class="container-fluid">
+       <div class="row p-2 pt-3 pb-3 d-flex align-items-center">
+           @*icon*@
+           <div class="col-md-2">
+               <img class="d-none d-md-flex" src="https://icons.veryicon.com/png/o/food--drinks/delicacy-series/coffee-cup-16.png" width="100">
+           </div>
+        <div class="col-md-8">
+        <div class="d-flex form-inputs">
+        <input class="form-control" id="searchPro" type="text" placeholder="Search any product...">
+        <i class="bx bx-search"></i>
+        </div>
+        
+        </div>
+           
+           <div class="col-md-2">
+               <div class="d-flex d-none d-md-flex flex-row align-items-center">
+                            <a href="/Cart"> <span><img height="50" width="50" src="https://cdn-icons-png.flaticon.com/512/1413/1413908.png" class='bx bxs-shopping-bag' /></span></a>
+                   <div class="d-flex flex-column ms-2">
+                       <span id="TotalProduct" class="qty">No Product added</span>
+                       <span id="TotalPrice" class="fw-bold">00.00 SAR</span>
+                   </div>    
+               </div>           
+           </div>
+       </div>
+            </div> 
+            <ul id="results" class="list-group"></ul>
+</section>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand d-md-none d-md-flex" href="#">Categories</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul id="ListCate" class="navbar-nav">
+
+      </ul>
+    </div>
+  </div>
+</nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - Fuad AlShabibi
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,102 @@
+﻿@model object;
+@{
+    ViewData["Title"] = "Thank you for Purchasing, Fuad";
+
+    var name = "Fuad Al-shabibi";
+    DateTime dateTime = DateTime.Now;
+
+    var obj = (dynamic) Model;
+    int i = 1;
+}
+
+<div class="card">
+    <div class="card-body">
+        <div class="container mb-5 mt-3">
+            <div class="container">
+                <div class="col-md-12">
+                    <div class="text-center">
+                        <i class="fab fa-mdb fa-4x ms-0" style="color:#5d9fc5 ;"></i>
+                        <p class="pt-0">BeanAndDrops</p>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col-xl-8">
+                        <ul class="list-unstyled">
+                            <li class="text-muted">To: <span style="color:#5d9fc5 ;">@name</span></li>
+                            <li class="text-muted">Muhammed Ali, Jeddah</li>
+                            <li class="text-muted">Mecca, Saudi Arabia</li>
+                            <li class="text-muted"><i class="fas fa-phone"></i> +966-123456789</li>
+                        </ul>
+                    </div>
+                    <div class="col-xl-4">
+                        <p class="text-muted">Invoice</p>
+                        <ul class="list-unstyled">
+                            <li class="text-muted">
+                                <i class="fas fa-circle" style="color:#84B0CA ;"></i> <span class="fw-bold">ID:</span>#123-456
+                            </li>
+                            <li class="text-muted">
+                                <i class="fas fa-circle" style="color:#84B0CA ;"></i> <span class="fw-bold">Creation Date: </span>@dateTime.Year / @dateTime.Month / @dateTime.Day
+                            </li>
+                            <li class="text-muted">
+                                <i class="fas fa-circle" style="color:#84B0CA ;"></i> <span class="me-1 fw-bold">Status:</span><span class="badge bg-Primary text-black fw-bold">
+                                    Paid
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row my-2 mx-1 justify-content-center">
+                    <table class="table table-striped table-borderless">
+                        <thead style="background-color:burlywood;" class="text-white">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Image</th>
+                                <th scope="col">Unit Price</th>
+                                <th scope="col">Net</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach(var item in obj.List){
+                            <tr>
+                                <th scope="row">@(i++)</th>
+                                <td>@item.Product_Name</td>
+                                <td><img src="@item.image" height="70" width="70" /></td>
+                                <td>@item.Product_Price SAR</td>
+                                    <td>@(item.Product_Price * 0.15 + item.Product_Price) SAR</td>
+                                </tr>
+                            }
+                        </tbody>
+
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="col-xl-8">
+                        <p class="ms-3">   </p>
+
+                    </div>
+                    <div class="col-xl-3">
+                        <ul class="list-unstyled">
+                            <li class="text-muted ms-3"><span class="text-black me-4">SubTotal</span>@obj.Total SAR</li>
+                            <li class="text-muted ms-3 mt-2"><span class="text-black me-4">Tax(15%)</span>@obj.Vat SAR</li>
+                        </ul>
+                        <p class="text-black float-start">
+                            <span class="text-black me-3"> Total Amount</span><span style="font-size: 25px;">@obj.Net SAR</span>
+                        </p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-xl-10 text-center">
+                        <p>Thank you for your purchase</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

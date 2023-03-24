@@ -1,0 +1,36 @@
+﻿@model List<BeanAndDrops.Models.Entities.Product>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<link href="~/css/mainpage.css" rel="stylesheet" />
+<section class="section-products">
+	<div class="container">
+		<div class="row justify-content-center text-center">
+			<div class="col-md-8 col-lg-6">
+				<div class="header">
+					<h2>Popular Products</h2>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			@foreach (var item in Model){
+			<div class="col-md-6 col-lg-4 col-xl-3">
+				<div id="product-1" class="single-product">
+                        <div class="part-1">
+							<a href="/products/@item.Product_id">
+                                <img class="d-none d-md-flex" src="@item.image" height="290" width="290" />
+                            </a>
+					</div>
+					<div class="part-2">
+							<h3 class="product-title"> <a href="/products/@item.Product_id">@item.Product_Name</a></h3>
+					    <h4 class="product-price">@item.Product_Price SAR</h4>
+						<p>no Tax Included</p>
+
+							<a href="/cate/@item.category.Category_Id">@item.category.Category_Name</a>
+					</div>
+				</div>
+			</div>
+            }
+		</div>
+	</div>
+</section>
